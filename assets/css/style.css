@@ -292,7 +292,7 @@ html {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: url('/assets/img/icon-playing.gif') no-repeat center/16px;   
+    background: url('./assets/img/icon-playing.gif') no-repeat center/16px;   
 }
 
 .song-item .thumbnail .icon-pause::before {
