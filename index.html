@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Web App Project</title>
+    <link rel="stylesheet" href="./assets/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div id="main">
+        <!-- Sidebar -->
+        <div id="side-bar">
+            <div class="user text-center">
+                <div class="avatar"></div>
+                <h3 class="name-user">Farzan Faruk</h3>
+                <p class="email">farzan.studio@gmail.com</p>
+            </div>
+            <ul class="menu">
+                <li class="home-page active"> 
+                    <a href="#"><i class="fas fa-home"></i>Home</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-bars"></i>Browse</a>
+                </li>
+                <li>
+                    <a href="#"><i class="far fa-images"></i>Album</a>
+                </li>
+                <li>
+                    <a href="#"><i class="far fa-user"></i>Artists</a>
+                </li>
+                <li class="favorite-list">
+                    <a href="#"><i class="fas fa-heart"></i>Favorite</a>
+                </li>
+            </ul>
+        </div>
+        <!-- End Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <!-- Content Header -->
+            <div class="content-header">
+                <div class="search">
+                    <button type="button" class="btn-search"><i class="fas fa-search"></i></button><input type="text"
+                        name="" id="" class="input-search" placeholder="Search...">
+                </div>
+                <div class="option">
+                    <i class="far fa-bell"></i>
+                    <i class="fas fa-cog"></i>
+                    <button class="btn-upgrade">Nâng cấp tài khoản</button>
+                </div>
+            </div>
+            <!--End Content Header -->
+
+            <!--Content Slider -->
+            <div class="content-slide">
+                <h3 class="slide-header">Top 6 bài hát Hot</h3>
+                <div class="slide-list">
+                    
+                </div>
+
+            </div>
+            <!--End Content Slider -->
+
+            <!--Content listsong -->
+            <div class="content-listsong">
+                <div class="playlist">
+                    <div class="playlist-header">
+                        <h3>Danh sách bài hát</h3>
+                    </div>
+                    
+                    <div class="playlist-main">
+                        
+                    </div>
+
+                </div>
+
+                <div class="music-player">
+                    <h3 class="player-header">Now Playing</h3>
+                    <div class="player-dashboard">
+                        <!-- Name song -->
+                        <header>
+                            <h4>String 57th & 9th</h4>
+                        </header>
+
+                        <!-- Cd -->
+                        <div class="cd">
+                            <div class="cd-thumb"></div>
+                        </div>
+
+                        
+                        <!-- Progress song -->
+                        <div class="back-progress">
+                            <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+                        </div>
+ 
+                        <!-- Control -->
+                        <div class="control">
+                            <div class="btn btn-repeat">
+                                <i class="fas fa-redo"></i>
+                            </div>
+                            <div class="btn btn-prev">
+                                <i class="fas fa-backward"></i>
+                            </div>
+                            <div class="btn btn-toggle-play">
+                                <i class="fas fa-pause icon-pause"></i>
+                                <i class="fas fa-play icon-play"></i>
+                            </div>
+                            <div class="btn btn-next">
+                                <i class="fas fa-forward"></i>
+                            </div>
+                            <div class="btn btn-random">
+                                <i class="fas fa-random"></i>
+                            </div>
+                        </div>
+
+
+                        <audio id="audio" src=""></audio>
+                    </div>
+                </div>
+            </div>
+
+            <!--End Content listsong -->
+
+        </div>
+    </div>
+
+    <!-- Toast message -->
+    <div id="toast">
+        
+    </div>
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
