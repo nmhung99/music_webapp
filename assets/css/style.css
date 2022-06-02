@@ -469,22 +469,41 @@ html {
     animation: name duration timing-function delay iteration-count direction fill-mode;
 }
 
+#toast .toast-warning {
+    width: 380px;
+    padding: 24px 0;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2px;
+    border-left: 4px solid yellow;
+    animation: toastanimate ease 1s, fadeOut linear 1s 3s forwards; 
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
 #toast .toast-success .toast-icon{
     padding: 0 16px;
     color: #47d864;
     font-size: 20px;
 }
 
-.toast-success .toast-content{
+#toast .toast-warning .toast-icon{
+    padding: 0 16px;
+    color: #ffc021;
+    font-size: 20px;
+}
+
+.toast-content{
     flex: 1;
 }
-.toast-success .toast-content .toast-desc{
+.toast-content .toast-desc{
     color: #888;
     font-size: 14px;
     margin-top: 8px;
 }
 
-#toast .toast-success .toast-close {
+#toast .toast-close {
     padding: 0 16px;
     font-size: 20px;
     cursor: pointer;

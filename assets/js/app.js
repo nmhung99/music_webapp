@@ -310,6 +310,16 @@ const app = {
             repeatButton.classList.toggle('active', _this.isLooping);
         }
 
+        // Handle when click menu 
+        $('.menu').onclick = function (e) {
+            const homeElement = $(e.target.closest('.home-page'));
+            const favoriteElement = $(e.target.closest('.favorite-list'));
+            if ((!homeElement || !favoriteElement) && e.target.closest('li')) {
+                _this.toastMessage('Tính năng đang được phát triển','warning');
+            }
+        }
+
+
         //Handle when click song item
         playListMain.onclick = function (e) {
             const songElement = e.target.closest(".song-item:not(.active)");
@@ -350,11 +360,11 @@ const app = {
                                 }
                             })
                         }
-                        _this.toastMessage(`Đã gỡ bài hát ${nameFavSong} khỏi danh sách Yêu Thích`);
+                        _this.toastMessage(`Đã gỡ bài hát ${nameFavSong} khỏi danh sách Yêu Thích`,'success');
                     } else {
                         _this.songs[favSong].favorite = true;
                         _this.favoriteSong.push(_this.songs.indexOf(_this.songs[favSong]));
-                        _this.toastMessage(`Đã thêm bài hát ${nameFavSong} vào danh sách Yêu Thích`)
+                        _this.toastMessage(`Đã thêm bài hát ${nameFavSong} vào danh sách Yêu Thích`,'success')
                     }
 
                     _this.favoriteSong.sort();
@@ -489,26 +499,29 @@ const app = {
             }
         })
     },
-    toastMessage: function (message='') {
+    toastMessage: function (message='',type='') {
         const mainToast = $('#toast');
         if (mainToast) {
-            const toastSuccess = document.createElement('div');
-
+            const toast = document.createElement('div');
+            const icons = {
+                success: 'fas fa-check-circle',
+                warning: 'fas fa-exclamation-circle',
+            };
             const autoRemoveToast = setTimeout(() => {
-                mainToast.removeChild($('.toast-success'))
+                mainToast.removeChild(toast)
             }, 4000);
 
-            toastSuccess.onclick = function (e) {
+            toast.onclick = function (e) {
                 if (e.target.closest('.toast-close')) {
-                    mainToast.removeChild(toastSuccess);
+                    mainToast.removeChild(toast);
                     clearTimeout(autoRemoveToast);
                 }
             }
 
-            toastSuccess.classList.add('toast-success');
-            toastSuccess.innerHTML = `
+            toast.classList.add(`toast-${type}`);
+            toast.innerHTML = `
                                 <div class="toast-icon">
-                                    <i class="fas fa-check-circle"></i>
+                                    <i class="${icons[type]}"></i>
                                 </div>
                                 <div class="toast-content">
                                     <h3 class="toast-title">Thành Công</h3>
@@ -520,7 +533,7 @@ const app = {
                                     <i class="fas fa-times"></i>
                                 </div>
                         `
-            mainToast.appendChild(toastSuccess);
+            mainToast.appendChild(toast);
         }
     },
     scrollToActiveSong: function () {
