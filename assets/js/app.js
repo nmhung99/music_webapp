@@ -315,7 +315,7 @@ const app = {
             const homeElement = $(e.target.closest('.home-page'));
             const favoriteElement = $(e.target.closest('.favorite-list'));
             if ((!homeElement || !favoriteElement) && e.target.closest('li')) {
-                _this.toastMessage('Tính năng đang được phát triển','warning');
+                _this.toastMessage('Cảnh báo','Tính năng đang được phát triển','warning');
             }
         }
 
@@ -360,11 +360,11 @@ const app = {
                                 }
                             })
                         }
-                        _this.toastMessage(`Đã gỡ bài hát ${nameFavSong} khỏi danh sách Yêu Thích`,'success');
+                        _this.toastMessage('Thành công',`Đã gỡ bài hát ${nameFavSong} khỏi danh sách Yêu Thích`,'success');
                     } else {
                         _this.songs[favSong].favorite = true;
                         _this.favoriteSong.push(_this.songs.indexOf(_this.songs[favSong]));
-                        _this.toastMessage(`Đã thêm bài hát ${nameFavSong} vào danh sách Yêu Thích`,'success')
+                        _this.toastMessage('Thành công',`Đã thêm bài hát ${nameFavSong} vào danh sách Yêu Thích`,'success')
                     }
 
                     _this.favoriteSong.sort();
@@ -499,7 +499,7 @@ const app = {
             }
         })
     },
-    toastMessage: function (message='',type='') {
+    toastMessage: function (title='',message='',type='') {
         const mainToast = $('#toast');
         if (mainToast) {
             const toast = document.createElement('div');
@@ -524,7 +524,7 @@ const app = {
                                     <i class="${icons[type]}"></i>
                                 </div>
                                 <div class="toast-content">
-                                    <h3 class="toast-title">Thành Công</h3>
+                                    <h3 class="toast-title">${title}</h3>
                                     <p class="toast-desc">
                                         ${message}
                                     </p>

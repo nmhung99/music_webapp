@@ -71,10 +71,6 @@ html {
     margin-bottom: 20px;
 }
 
-#side-bar .menu li {
-    
-}
-
 #side-bar .menu i[class*="fa-"] {
     width: 40px;
     font-size: 18px;
@@ -477,7 +473,7 @@ html {
     align-items: center;
     background-color: #fff;
     border-radius: 2px;
-    border-left: 4px solid yellow;
+    border-left: 4px solid #ffc021;
     animation: toastanimate ease 1s, fadeOut linear 1s 3s forwards; 
     animation: name duration timing-function delay iteration-count direction fill-mode;
 }
