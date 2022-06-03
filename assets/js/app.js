@@ -15,14 +15,14 @@ const repeatButton = $('.btn-repeat');
 const progress = $('#progress');
 const favoriteList = $('.favorite-list');
 
-const PLAYER_STORAGE_KEY = 'MH_STORAGE';
+const localStorageMusic = 'MH_STORAGE';
 
 
 const app = {
     currentIndex: 0,
-    isPlaying: false,
     isRandom: false,
     isLooping: false,
+    isPlaying: false,
     playedSong: [],
     playedFavoriteSong: [],
     favoriteSong: [],
@@ -109,10 +109,10 @@ const app = {
             favorite: false
         },
     ],
-    config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+    config: JSON.parse(localStorage.getItem(localStorageMusic)) || {},
     setConfig: function (key, value) {
         this.config[key] = value;
-        localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+        localStorage.setItem(localStorageMusic, JSON.stringify(this.config));
     },
     loadConfig: function () {
         this.isRandom = this.config.isRandom || false;
@@ -179,7 +179,7 @@ const app = {
         });
         cdAnimation.pause();
 
-        // Handle when click play button
+        // Click play button
         playButton.onclick = function () {
             if (_this.isPlaying) {
                 audio.pause();
@@ -188,7 +188,7 @@ const app = {
             }
         }
 
-        //handle when audio play 
+        //When audio play 
         audio.onplay = function () {
             _this.isPlaying = true;
             musicPlayer.classList.add('playing');
@@ -203,7 +203,7 @@ const app = {
             cdAnimation.play();
         }
 
-        //handle when audio pause 
+        //When audio pause 
         audio.onpause = function () {
             _this.isPlaying = false;
             musicPlayer.classList.remove('playing');
@@ -216,7 +216,7 @@ const app = {
             cdAnimation.pause();
         }
 
-        //handle when audio pause 
+        //When audio end
         audio.onended = function () {
             if (_this.isLooping) {
                 audio.play();
@@ -225,7 +225,7 @@ const app = {
             }
         }
 
-        //Handle when time of song change
+        //When time of song change
         audio.ontimeupdate = function () {
             if (audio.duration) {
                 const progressValue = audio.currentTime / audio.duration * 100;
@@ -240,7 +240,7 @@ const app = {
             _this.loadProgress();
         }
 
-        // Handle when click next button
+        //Click next button
         nextButton.onclick = function () {
             if (_this.isRandom) {
                 _this.randomSong();
@@ -267,7 +267,7 @@ const app = {
             _this.scrollToActiveSong();
         }
 
-        // Handle wwhen click prev button
+        //Click prev button
         prevButton.onclick = function () {
             if ($('.song-item.active')) {
                 $('.song-item.active').classList.remove('active');
@@ -296,21 +296,21 @@ const app = {
             _this.scrollToActiveSong();
         }
 
-        // Handle when click random button
+        //Click random button
         randomButton.onclick = function () {
             _this.isRandom = !_this.isRandom;
             _this.setConfig('isRandom', _this.isRandom);
             randomButton.classList.toggle('active', _this.isRandom);
         }
 
-        // Handle when click repeat button
+        //Click repeat button
         repeatButton.onclick = function () {
             _this.isLooping = !_this.isLooping;
             _this.setConfig('isLooping', _this.isLooping);
             repeatButton.classList.toggle('active', _this.isLooping);
         }
 
-        // Handle when click menu 
+        //Click menu item
         $('.menu').onclick = function (e) {
             const homeElement = $(e.target.closest('.home-page'));
             const favoriteElement = $(e.target.closest('.favorite-list'));
@@ -320,7 +320,7 @@ const app = {
         }
 
 
-        //Handle when click song item
+        //Click song item
         playListMain.onclick = function (e) {
             const songElement = e.target.closest(".song-item:not(.active)");
             const favoriteElement = e.target.closest(".favorite");
@@ -377,7 +377,7 @@ const app = {
 
         }
 
-        //Handle when click slide item
+        //Click slide item
         slideList.onclick = function (e) {
             const imgItem = e.target.closest(".slide-item:not(.active) #play-btn");
             const nameItem = e.target.closest(".slide-item:not(.active) .title");
@@ -419,7 +419,7 @@ const app = {
             }
         };
 
-        // Handle wwhen click favorite menu
+        //Click favorite in menu
         favoriteList.onclick = function (e) {
             $('.playlist-header').innerHTML = '<h3>Danh sách bài hát yêu thích</h3>'
             favoriteList.classList.add('active');
@@ -467,7 +467,7 @@ const app = {
             _this.scrollToActiveSong();
         }
 
-        // Handle when click homepage
+        // Click homepage in menu
         $('.home-page').onclick = function (e) {
             $('.playlist-header').innerHTML = '<h3>Danh sách bài hát</h3>'
             _this.render();
@@ -654,7 +654,7 @@ const app = {
         this.loadCurrentSong();
     },
     start: function () {
-        if (!(localStorage.getItem(PLAYER_STORAGE_KEY) === null)) {
+        if (!(localStorage.getItem(localStorageMusic) === null)) {
             this.loadConfig();
         }
         this.render();
