@@ -1,0 +1,117 @@
+ @media only screen and (max-width: 1137px) {
+     #side-bar {
+         display: none;
+     }
+
+     #content {
+         margin: 0;
+     }
+
+     .content-listsong .playlist {
+         margin-top: 30px;
+     }
+
+     #content .content-header {
+         display: none;
+     }
+ }
+
+ @media only screen and (min-width: 490px) and (max-width: 739px) {
+     #content .content-slide .slide-list {
+         display: flex;
+         flex-wrap: wrap;
+     }
+
+     #content .content-slide .slide-item {
+         width: 33.333%;
+         padding: 12px 0;
+     }
+
+     .content-slide .img-item {
+         width: 60% !important;
+         height: 70% !important;
+     }
+ }
+
+ @media only screen and (max-width: 489px) {
+     #content .content-slide .slide-list {
+         display: flex;
+         flex-wrap: wrap;
+     }
+
+     #content .content-slide .slide-item {
+         width: 33.333%;
+         padding: 14px 0;
+         font-size: 12px;
+     }
+
+     .content-slide .img-item {
+         width: 50% !important;
+         height: 60% !important;
+         border-radius: 10px !important;
+     }
+
+     .song-item .body {
+         font-size: 14px !important;
+     }
+
+     #content {
+         padding: 12px 12px;
+     }
+
+     .music-player .cd .cd-thumb {
+         width: 80%;
+         padding-top: 80%;
+         margin-left: 12px;
+     }
+
+     .music-player header {
+         margin-left: 6px;
+         font-size: 14px;
+     }
+
+     .music-player .control {
+         font-size: 9px !important;
+         width: 35%;
+     }
+
+     .music-player .control .btn-toggle-play {
+         width: 30px;
+         height: 30px;
+     }
+     .slide-item.active #playing-icon {
+        background-size: 12px;
+     }
+     .music-player header {
+        font-size: 10px;
+        width: 10%;
+    }
+    .music-player .back-progress {
+        width: 20%;
+    }
+    .music-player .cd {
+        width: 10%;
+    }
+    .song-item .body{
+        font-size: 12px !important;
+    }
+    .song-item .favorite i {
+        font-size: 16px;
+    }
+    .song-item .body .author{
+        font-size: 10px !important;
+    }
+    
+ }
+
+
+ @media only screen and (min-width: 740px) and (max-width: 856px) {
+     #content .content-slide .img-item {
+         width: 80%;
+         height: 60%;
+     }
+
+     .content-listsong .playlist {
+         margin-top: 10px;
+     }
+ }
