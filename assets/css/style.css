@@ -78,6 +78,7 @@ html {
 #content {
     width: 100%;
     min-height: 100vh;
+    margin-bottom: 90px;
     margin-left: 280px;
     background-color: #f8f9fe;
     padding: 24px 36px;
